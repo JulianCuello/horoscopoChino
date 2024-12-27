@@ -50,32 +50,37 @@ switch ($params[0]) {
     case 'lista':
         $jugueteControlador->mostrarJuguetes();
         break;
-    case 'jugueteId':
+    case 'personaId':
         if(isset($params[1]))
-        $jugueteControlador->mostrarJuguetePorId($params[1]);
-        else $listaControlador->mostrarJuguetes();
+        $personaControlador->mostrarPersonaPorId($params[1]);
+        else $listaControlador->mostrarPersonas();
         break;
     case 'eliminarJuguete':
         if(isset($params[1]))
-        $jugueteControlador->eliminarJuguete($params[1]);
+        $personaControlador->eliminarPersona($params[1]);
         else $mostrarControlador->mostrarError("404-Not-Found");
         break;
-    case 'modificarFormularioJuguete':
+    case 'modificarFormularioPersona':
         if(isset($params[1]))
-        $jugueteControlador->mostrarModificacion($params[1]);
+        $personaControlador->mostrarModificacion($params[1]);
         else $mostrarControlador->mostrarError("404-Not-Found");
         break;
-        case 'modificarJuguete':
+        case 'modificarPersona':
             if(isset($params[1]))
-            $jugueteControlador->modificarJuguete($params[1]);
+            $jugueteControlador->modificarPersona($params[1]);
             else $mostrarControlador->mostrarError("esta entrando con error");
             break;
-    case 'agregarJugueteFormulario':
-        $jugueteControlador->mostrarFormularioAlta();
+    case 'agregarPersonaFormulario':
+        $personaControlador->mostrarFormularioAlta();
         break;
-    case 'agregarJuguete':
+    case 'agregarPersona':
         $jugueteControlador->agregarJuguete();
         break;
+
+
+
+
+        
     case 'marca':
         $marcaControlador->mostrarMarcas();
         break;

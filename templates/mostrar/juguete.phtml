@@ -1,0 +1,33 @@
+<?php
+require 'templates/tareas/header.phtml';   
+?>
+<div class="container">
+    <div class="row">
+        <?php foreach($juguete as $item) { ?>      
+            <div class="col-md-3"> <!-- Ajusta el número de columnas según lo que necesites -->
+                <div class="card mb-3">
+                    <img src="<?php echo $item->img; ?>" class="card-img-top" alt="<?php echo $item->nombreProducto; ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $item->nombreProducto; ?></h5>
+                        <p class="card-text">
+                            <strong>ID:</strong> <?php echo $item->id_juguete; ?><br>
+                            <strong>Precio:</strong> <?php echo $item->precio; ?><br>
+                            <strong>Material:</strong> <?php echo $item->material; ?><br>
+                            <strong>Código:</strong> <?php echo $item->codigo; ?>
+                             
+                        </p>
+                        
+                        <a href="jugueteId/<?php echo $item->id_juguete; ?>" class="btn btn-primary">Ver Producto</a>
+                        <?php if (Autorizacion::esAdministrador()) { ?>
+                        <a href="eliminarJuguete/<?php echo $item->id_juguete; ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="actualizarJuguete/<?php echo $item->id_juguete; ?>" class="btn btn-success">Modificar</a>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>      
+        <?php } ?>
+    </div>
+</div>
+<?php
+require './templates/tareas/footer.phtml'; 
+?>

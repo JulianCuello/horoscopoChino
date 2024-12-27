@@ -1,0 +1,32 @@
+<?php
+
+require './templates/tareas/header.phtml';  ?> 
+
+    <div class="container mt-3">
+          
+        <h2>Carga de marca</h2>
+
+        <form action="agregarMarca" method="POST">
+            <div class="mb-1">
+                <label for="origen" class="form-label">origen</label>
+                <input type="text" class="form-control" id="origen" name="origen" required>
+            </div>
+            <div class="mb-1">
+                <label for="caracteristica" class="form-label">caracteristica</label>
+                <input type="text" class="form-control" id="origen" name="caracteristica" required>
+            </div>
+            <div class="mb-1">
+                <label for="nombreMarca" class="form-label">nombre marca</label>
+                <input type="text" class="form-control" id="origen" name="nombreMarca" required>
+            </div>
+            <div class="mb-1">
+            <label for="imgMarca" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="imgMarca" name="imgMarca">
+        </div>
+            <button type="submit" class="btn btn-primary">Guardar marca</button>
+        </form>
+    </div>
+
+    <?php
+
+    require_once 'templates/tareas/footer.phtml';

@@ -1,0 +1,31 @@
+<?php
+require './templates/tareas/header.phtml';   
+?>
+<div class="container mt-4">
+    <div class="row">
+        <?php foreach($marcas as $marca) { ?>      
+            <div class="col-md-4 mb-4"> 
+                <div class="card">
+                <img src="<?= htmlspecialchars($marca->imgMarca); ?>" class="card-img-top" alt="<?= htmlspecialchars($marca->nombreMarca); ?>">
+
+                    <div class="card-body">
+                        <h5 class="card-title"><?= htmlspecialchars($marca->nombreMarca); ?></h5>
+                        <p class="card-text">
+                            <strong>Origen:</strong> <?= htmlspecialchars($marca->origen); ?><br>
+                            <strong>caracteristica:</strong> <?= htmlspecialchars($marca->caracteristica); ?><br>
+                            <strong>Nombre de Marca:</strong> <?= htmlspecialchars($marca->nombreMarca); ?>
+                        </p>
+                        <a href="marcaId/<?= $marca->id_marca; ?>" class="btn btn-primary">Ver Productos</a>
+                        <?php if (Autorizacion::esAdministrador()) { ?>
+                            <a href="eliminarMarca/<?= $marca->id_marca; ?>" class="btn btn-danger">Eliminar</a>
+                            <a href="formularioMarcaModificacion/<?= $marca->id_marca; ?>" class="btn btn-success">Modificar</a>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>      
+        <?php } ?>
+    </div>
+</div>
+<?php
+require_once 'templates/tareas/footer.phtml';
+?>
