@@ -10,14 +10,14 @@ require 'templates/tareas/header.phtml';
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item->nombre; ?></h5>
                         <p class="card-text">
-                            <strong>ID:</strong> <?php echo $item->id; ?><br>
+                           
                             <strong>nombre:</strong> <?php echo $item->nombre; ?><br>
                             <strong>apellido:</strong> <?php echo $item->apellido; ?><br>
-                            <strong>diaNacimiento:</strong> <?php echo $item->diaNacimiento; ?>
-                            <strong>mesNacimiento:</strong> <?php echo $item->mesNacimiento; ?>
-                            <strong>anioNacimiento:</strong> <?php echo $item->anioNacimiento; ?>
-                            <strong>horaNacimiento:</strong> <?php echo $item->horaNacimiento; ?>
-                             
+                            <strong>diaNacimiento:</strong> <?php echo $item->diaNacimiento;?><br>
+                            <strong>mesNacimiento:</strong> <?php echo $item->mesNacimiento;?><br>
+                            <strong>anioNacimiento:</strong> <?php echo $item->anioNacimiento;?><br>
+                            <strong>horaNacimiento:</strong> <?php echo $item->horaNacimiento;?><br>
+                            
                         </p>
                         
                         <a href="personaId/<?php echo $item->id; ?>" class="btn btn-primary">Ver persona</a>

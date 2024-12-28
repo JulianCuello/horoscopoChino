@@ -3,22 +3,22 @@ require './templates/tareas/header.phtml';
 ?>
 <div class="container mt-4">
     <div class="row">
-        <?php foreach($marcas as $marca) { ?>      
+        <?php foreach($signos as $signo) { ?>      
             <div class="col-md-4 mb-4"> 
                 <div class="card">
-                <img src="<?= htmlspecialchars($marca->imgMarca); ?>" class="card-img-top" alt="<?= htmlspecialchars($marca->nombreMarca); ?>">
+                <img src="<?= htmlspecialchars($signo->imgHoroscopos); ?>" class="card-img-top" alt="<?= htmlspecialchars($signo->id_signo); ?>">
 
                     <div class="card-body">
-                        <h5 class="card-title"><?= htmlspecialchars($marca->nombreMarca); ?></h5>
+                        <h5 class="card-title"><?= htmlspecialchars($signo->id_signo); ?></h5>
                         <p class="card-text">
-                            <strong>Origen:</strong> <?= htmlspecialchars($marca->origen); ?><br>
-                            <strong>caracteristica:</strong> <?= htmlspecialchars($marca->caracteristica); ?><br>
-                            <strong>Nombre de Marca:</strong> <?= htmlspecialchars($marca->nombreMarca); ?>
+                            <strong>elemento:</strong> <?= htmlspecialchars($signo->elemento); ?><br>
+                            <strong>caracteristicas:</strong> <?= htmlspecialchars($signo->caracteristicaGenerales); ?><br>
+                            <strong>Nombre:</strong> <?= htmlspecialchars($signo->predicciones); ?>
                         </p>
-                        <a href="marcaId/<?= $marca->id_marca; ?>" class="btn btn-primary">Ver Productos</a>
+                        <a href="signoId/<?= $signo->id_signo; ?>" class="btn btn-primary">Ver Productos</a>
                         <?php if (Autorizacion::esAdministrador()) { ?>
-                            <a href="eliminarMarca/<?= $marca->id_marca; ?>" class="btn btn-danger">Eliminar</a>
-                            <a href="formularioMarcaModificacion/<?= $marca->id_marca; ?>" class="btn btn-success">Modificar</a>
+                            <a href="eliminarSigno/<?= $signo->id_signo; ?>" class="btn btn-danger">Eliminar</a>
+                            <a href="formularioSignoModificacion/<?= $signo->id_signo; ?>" class="btn btn-success">Modificar</a>
                         <?php } ?>
                     </div>
                 </div>
