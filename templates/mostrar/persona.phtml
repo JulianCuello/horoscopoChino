@@ -1,0 +1,36 @@
+<?php
+require 'templates/tareas/header.phtml';   
+?>
+<div class="container">
+    <div class="row">
+        <?php foreach($persona as $item) { ?>      
+            <div class="col-md-3"> <!-- Ajusta el número de columnas según lo que necesites -->
+                <div class="card mb-3">
+                    <img src="<?php echo $item->imgPersona; ?>" class="card-img-top" alt="<?php echo $item->nombre; ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $item->nombre; ?></h5>
+                        <p class="card-text">
+                            <strong>ID:</strong> <?php echo $item->id; ?><br>
+                            <strong>nombre:</strong> <?php echo $item->nombre; ?><br>
+                            <strong>apellido:</strong> <?php echo $item->apellido; ?><br>
+                            <strong>diaNacimiento:</strong> <?php echo $item->diaNacimiento; ?>
+                            <strong>mesNacimiento:</strong> <?php echo $item->mesNacimiento; ?>
+                            <strong>anioNacimiento:</strong> <?php echo $item->anioNacimiento; ?>
+                            <strong>horaNacimiento:</strong> <?php echo $item->horaNacimiento; ?>
+                             
+                        </p>
+                        
+                        <a href="personaId/<?php echo $item->id; ?>" class="btn btn-primary">Ver persona</a>
+                        <?php if (Autorizacion::esAdministrador()) { ?>
+                        <a href="eliminarPersona/<?php echo $item->id; ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="actualizarPersona/<?php echo $item->id; ?>" class="btn btn-success">Modificar</a>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>      
+        <?php } ?>
+    </div>
+</div>
+<?php
+require './templates/tareas/footer.phtml'; 
+?>

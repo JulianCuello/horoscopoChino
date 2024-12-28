@@ -1,6 +1,6 @@
 <?php
    
-class marcaVista{
+class signoVista{
 
     public function demostrarsignos($signo,$adm){
         require './templates/mostrar/signo.phtml';

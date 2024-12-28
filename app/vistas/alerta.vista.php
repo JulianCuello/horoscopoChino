@@ -7,6 +7,6 @@ class AlertaVista{
     }
 
     public function mostrarVacio($text){
-        require './templates/alerta/vacio.phtml';
+        require './templates/alertas/vacio.phtml';
     }
 }

@@ -1,7 +1,7 @@
 <?php
 require_once './config.php';
-require_once './app/controladores/juguete.controlador.php';
-require_once './app/controladores/marca.controlador.php';
+require_once './app/controladores/persona.controlador.php';
+require_once './app/controladores/signo.controlador.php';
 require_once './app/controladores/autorizacion.controlador.php';
 require_once './app/controladores/mostrar.controlador.php';
 
@@ -40,15 +40,15 @@ if (!empty($_GET["action"])){
 $params = explode("/",$action);
 
 //instancio una sola vez
-$jugueteControlador = new JugueteControlador();
-$marcaControlador = new MarcaControlador();
+$personaControlador = new PersonaControlador();
+$signoControlador = new SignoControlador();
 $autorizacionControlador = new AutorizacionControlador();
 $mostrarControlador = new MostrarControlador();
 
 switch ($params[0]) {
 
     case 'lista':
-        $jugueteControlador->mostrarJuguetes();
+        $personaControlador->mostrarPersonas();
         break;
     case 'personaId':
         if(isset($params[1]))
@@ -74,7 +74,7 @@ switch ($params[0]) {
         $personaControlador->mostrarFormularioAlta();
         break;
     case 'agregarPersona':
-        $jugueteControlador->agregarJuguete();
+        $personaControlador->agregarPersona();
         break;
 
 

@@ -1,20 +1,20 @@
 
 <?php
 
-require_once 'app/controladores/juguete.controlador.php';
+require_once 'app/controladores/persona.controlador.php';
 
-class jugueteVista {
+class personaVista {
 
     public function mostrarError($error) {
         echo "<h2> $error</h2>";
     }
 
     public function mostrarPersonas($persona,$adm) {
-        require('./templates/mostrar/juguete.phtml');        
+        require('./templates/mostrar/persona.phtml');        
     }
     
     public function mostrarPersonaPorId($lista) {
-        require './templates/mostrar/juguetePorId.phtml';   
+        require './templates/mostrar/personaPorId.phtml';   
     }
 
     public function mostrarModificacionDeUsuario($signo, $item) {

@@ -1,18 +1,18 @@
 <?php require './templates/tareas/header.phtml'; ?>
 
 <div class="container mt-5">
-    <?php foreach ($lista as $juguete) { ?>
+    <?php foreach ($lista as $persona) { ?>
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="<?= $juguete->img; ?>" class="img-fluid rounded-start" alt="Imagen del Producto">
+                <img src="<?= $persona->img; ?>" class="img-fluid rounded-start" alt="Imagen del Producto">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $juguete->nombreProducto; ?></h5>
-                        <p class="card-text"><?= $juguete->codigo; ?></p>
-                        <p class="card-text"><strong>Precio:</strong>$<?= $juguete->precio; ?></p>
-                        <p class="card-text"><strong>Material:</strong> <?= $juguete->material; ?></p>
+                        <h5 class="card-title"><?= $persona->nombreProducto; ?></h5>
+                        <p class="card-text"><?= $persona->codigo; ?></p>
+                        <p class="card-text"><strong>Precio:</strong>$<?= $persona->precio; ?></p>
+                        <p class="card-text"><strong>Material:</strong> <?= $persona->material; ?></p>
                         
                         
                         <a href="lista" class="btn btn-primary">Volver</a>

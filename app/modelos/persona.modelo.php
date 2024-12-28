@@ -5,27 +5,26 @@
     class personaModelo extends Modelo{
        
         public function mostrarPersonas(){
-            $query = $this->db->prepare('SELECT * FROM persona JOIN signo ON persona.id_signo = marca.id_signo;');
+            $query = $this->db->prepare('SELECT * FROM persona JOIN signo ON persona.id_signo = signo.id_signo;');
             $query->execute();
             return $query->fetchAll(PDO::FETCH_OBJ);            
         }
 
         public function seleccionarPersona($id) {
-                $query = $this->db->prepare('SELECT * FROM `juguete` JOIN marca ON juguete.id_marca=marca.id_marca WHERE id_marca = ?');
+                $query = $this->db->prepare('SELECT * FROM `persona` JOIN signo ON persona.id_signo=signo.id_signo WHERE id_signo = ?');
                 $query->execute([$id]);
                 return $query->fetchAll(PDO::FETCH_OBJ);
             }
        
             public function obtenerPersonaPorId($id) {
-                $query = $this->db->prepare('SELECT * FROM juguete JOIN marca ON juguete.id_marca = marca.id_marca WHERE juguete.id_juguete = ?');
+                $query = $this->db->prepare('SELECT * FROM persona JOIN signo ON persona.id_signo = signo.id_signo WHERE persona.id = ?');
                 $query->execute([$id]);
                 return $query->fetchAll(PDO::FETCH_OBJ);  // Devuelve solo un objeto
             }
-            
-
-            function insertarPersona($nombreProducto, $precio, $material, $id_marca, $codigo, $img) {
-                $query = $this->db->prepare('INSERT INTO juguete (nombreProducto, precio, material, id_marca, codigo, img) VALUES (?, ?, ?, ?, ?, ?)');
-                $query->execute([$nombreProducto, $precio, $material, $id_marca, $codigo, $img]); // Corrección aquí
+    
+            function insertarPersona($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo) {
+                $query = $this->db->prepare('INSERT INTO juguete ($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo); VALUES (?, ?, ?, ?, ?, ?,?, ?, ?)');
+                $query->execute([$id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo]); // Corrección aquí
                 return $this->db->lastInsertId();
             }
             /*
@@ -36,15 +35,14 @@
             }
         */
         public function borrarPersona($id) {
-            $query = $this->db->prepare('DELETE FROM juguete WHERE id_juguete = ?');
+            $query = $this->db->prepare('DELETE FROM persona WHERE id = ?');
             $query->execute([$id]);
             return $query->rowCount();
         }
     
-        function actualizarPersona($id_juguete, $nombreProducto, $precio, $material, $codigo, $img){
-            $query = $this->db->prepare('UPDATE juguete SET nombreProducto=?, precio=?, material=?, codigo=?, img=? WHERE id_juguete=?');
-            $query->execute([$nombreProducto, $precio, $material, $codigo, $img, $id_juguete]); // Asegúrate de que la columna de la base de datos se llame id_juguete
+        function actualizarPersona($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo){
+            $query = $this->db->prepare('UPDATE persona SET nombre=?, apellido=?, diaNacimiento=?, mesNacimiento=?, anioNacimiento=?, horaNacimiento=?, $imgPersona,$id_signo=? WHERE id_juguete=?');
+            $query->execute([id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo]); // Asegúrate de que la columna de la base de datos se llame id_juguete
             return $query->rowCount();
         }
-        
     }
