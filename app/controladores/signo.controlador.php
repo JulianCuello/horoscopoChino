@@ -17,14 +17,14 @@ class signoControlador{
         $this->modelo = new signoModelo();
         $this->modeloPersona = new personaModelo();
         $this->vista = new signoVista();
-        $this->alertaViesta = new AlertaVista();
+        $this->alertaVista = new AlertaVista();
     }
 
     //lista marcas completa
     public function mostrarSignos(){
-        $marcas = $this->modelo->obtenerSignos();
-        if ($marcas != null) {
-            $this->vista->demostrarSignos($signos, Autorizacion::esAdministrador());
+        $signo = $this->modelo->obtenerSignos();
+        if ($signo != null) {
+            $this->vista->demostrarSignos($signo, Autorizacion::esAdministrador());
         } else {
             $this->alertaVista->mostrarVacio("no hay elementos para mostrar");
         }
@@ -72,7 +72,7 @@ class signoControlador{
     
         // Si el $id es proporcionado, busco la marca para editarla, si no, creo un nuevo formulario
         if ($id !== null && Validacion::verificacionIdRouter($id)) {
-            $signo = $this->modelo->obtenerMarcaId($id); //consulto los datos actuales
+            $signo = $this->modelo->obtenerSignoId($id); //consulto los datos actuales
             if ($signo == null) {
                 $this->alertaVista->mostrarError("Error al intentar mostrar formulario");
                 return;
@@ -82,7 +82,7 @@ class signoControlador{
             $signo = null;
         }
     
-        $this->vista->mostrarFormularioMarca($marca);
+        $this->vista->mostrarFormularioSigno($signo);
     }
 
     //enviar datos de modificacion 

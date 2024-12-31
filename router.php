@@ -76,32 +76,28 @@ switch ($params[0]) {
     case 'agregarPersona':
         $personaControlador->agregarPersona();
         break;
-
-
-
-
         
-    case 'marca':
-        $marcaControlador->mostrarMarcas();
+    case 'signo':
+        $signoControlador->mostrarSignos();
         break;
-    case 'marcaId':
+    case 'signoId':
         if(isset($params[1]))
-        $marcaControlador->mostrarMarcaId($params[1]);
-        else $marcaControlador->mostrarMarcas();
+        $signoControlador->mostrarSignoId($params[1]);
+        else $signoControlador->mostrarSignos();
         break;
-    case 'eliminarMarca':
+    case 'eliminarSigno':
         if(isset($params[1]))
-        $marcaControlador->eliminarMarca($params[1]);
+        $signoControlador->eliminarSigno($params[1]);
         else $mostrarControlador->mostrarError("404-Not-Found");
         break;
-        case 'agregarMarcaFormulario':
-            $marcaControlador->formularioMarca();
+        case 'agregarSignoFormulario':
+            $signoControlador->formularioSigno();
             break;
-    case 'modificarMarca':
-        $marcaControlador->mostrarMarcaModificada();
+    case 'modificarSigno':
+        $signoControlador->mostrarSignoModificado();
         break;
-    case 'agregarMarca':
-        $marcaControlador->agregarMarca();
+    case 'agregarSigno':
+        $signoControlador->agregarSigno();
         break;
     case 'inicioSesion':
         $autorizacionControlador->mostrarInicioSesion();

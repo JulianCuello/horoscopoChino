@@ -1,0 +1,45 @@
+<?php require_once 'templates/tareas/header.phtml'; ?>
+
+<div class="container mt-1">
+    <h5>Agregar persona</h5>
+    <form action="agregarPersona" method="POST">
+
+            <select class="form-select" id="signo" name="id_signo">
+            <?php foreach($signo as $sig): ?>
+                <option value="<?= $sig->id_signo; ?>"><?= $sig->nombre; ?></option>
+            <?php endforeach; ?>
+             </select>
+
+        <div class="mb-1">
+            <label for="nombre" class="form-label"> Nombre</label>
+            <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" required>
+        </div>
+        <div class="mb-1">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required>
+        </div>
+        <div class="mb-1">
+            <label for="diaDeNacimiento" class="form-label">Dia de nacimiento</label>
+            <input type="text" class="form-control" id="diaDeNacimiento" name="diaDeNacimiento" required>
+        </div>
+        <div class="mb-1">
+            <label for="mesDeNacimiento" class="form-label">Mes de nacimiento</label>
+            <input type="number" class="form-control" id="codigo" name="codigo" required>
+        </div>
+        <div class="mb-1">
+            <label for="anioDeNacimiento" class="form-label">Año de nacimiento</label>
+            <input type="number" class="form-control" id="codigo" name="codigo" required>
+        </div>        
+        <div class="mb-1">
+            <label for="horaDeNacimiento" class="form-label">Hora de nacimiento</label>
+            <input type="number" class="form-control" id="codigo" name="codigo" required>
+        </div>
+        <div class="mb-1">
+            <label for="imgPersona" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="imgPersona" name="imgPersona">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+    </form>
+</div>
+
+<?php require_once 'templates/tareas/footer.phtml'; ?>

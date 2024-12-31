@@ -6,18 +6,14 @@ require 'templates/tareas/header.phtml';
         <?php foreach($persona as $item) { ?>      
             <div class="col-md-3"> <!-- Ajusta el número de columnas según lo que necesites -->
                 <div class="card mb-3">
-                    <img src="<?php echo $item->imgPersona; ?>" class="card-img-top" alt="<?php echo $item->nombre; ?>">
+                    <img src="<?php echo $item->imgPersona; ?>" class="card-img-top"?>
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $item->nombre; ?></h5>
+                    <h5 class="card-title"><?php echo $item->nombre . ' ' . $item->apellido; ?></h5>
+
                         <p class="card-text">
-                           
-                            <strong>nombre:</strong> <?php echo $item->nombre; ?><br>
-                            <strong>apellido:</strong> <?php echo $item->apellido; ?><br>
-                            <strong>diaNacimiento:</strong> <?php echo $item->diaNacimiento;?><br>
-                            <strong>mesNacimiento:</strong> <?php echo $item->mesNacimiento;?><br>
-                            <strong>anioNacimiento:</strong> <?php echo $item->anioNacimiento;?><br>
-                            <strong>horaNacimiento:</strong> <?php echo $item->horaNacimiento;?><br>
-                            
+                            <strong>Dia de nacimiento:</strong> <?php echo $item->diaNacimiento;?><br>
+                            <strong>Mes de nacimiento:</strong> <?php echo $item->mesNacimiento;?><br>
+                            <strong>Año de nacimiento:</strong> <?php echo $item->anioNacimiento;?><br>
                         </p>
                         
                         <a href="personaId/<?php echo $item->id; ?>" class="btn btn-primary">Ver persona</a>
