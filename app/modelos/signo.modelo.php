@@ -28,12 +28,6 @@ class signoModelo extends Modelo {
         $query->execute([$id_signo, $elemento, $caracteristicasGenerales, $predicciones, $imgHoroscopo, $animal, $id_signo]);
         return $query->rowCount();
     }
-    //consulta para mostrar las categorias disponibles cuando se quiere modificar un producto o categoria
-    function obtenerSignoId(){ 
-        $query = $this->db->prepare('SELECT * FROM `signo` WHERE id_signo=?');
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
 }
 
     
