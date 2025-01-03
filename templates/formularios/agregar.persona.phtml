@@ -3,15 +3,8 @@
 <div class="container mt-1">
     <h5>Agregar persona</h5>
     <form action="agregarPersona" method="POST">
-
-            <select class="form-select" id="signo" name="id_signo">
-            <?php foreach($signo as $sig): ?>
-                <option value="<?= $sig->id_signo; ?>"><?= $sig->nombre; ?></option>
-            <?php endforeach; ?>
-             </select>
-
         <div class="mb-1">
-            <label for="nombre" class="form-label"> Nombre</label>
+            <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         <div class="mb-1">
@@ -19,20 +12,20 @@
             <input type="text" class="form-control" id="apellido" name="apellido" required>
         </div>
         <div class="mb-1">
-            <label for="diaDeNacimiento" class="form-label">Dia de nacimiento</label>
-            <input type="text" class="form-control" id="diaDeNacimiento" name="diaDeNacimiento" required>
+            <label for="diaDeNacimiento" class="form-label">Día de nacimiento</label>
+            <input type="number" class="form-control" id="diaDeNacimiento" name="diaDeNacimiento" required>
         </div>
         <div class="mb-1">
             <label for="mesDeNacimiento" class="form-label">Mes de nacimiento</label>
-            <input type="number" class="form-control" id="codigo" name="codigo" required>
+            <input type="number" class="form-control" id="mesDeNacimiento" name="mesDeNacimiento" required>
         </div>
         <div class="mb-1">
             <label for="anioDeNacimiento" class="form-label">Año de nacimiento</label>
-            <input type="number" class="form-control" id="Año de nacimiento" name="Año de nacimiento" required>
-        </div>        
+            <input type="number" class="form-control" id="anioDeNacimiento" name="anioDeNacimiento" required>
+        </div>
         <div class="mb-1">
             <label for="horaDeNacimiento" class="form-label">Hora de nacimiento</label>
-            <input type="number" class="form-control" id="codigo" name="codigo" required>
+            <input type="number" class="form-control" id="horaDeNacimiento" name="horaDeNacimiento" required>
         </div>
         <div class="mb-1">
             <label for="imgPersona" class="form-label">Imagen</label>

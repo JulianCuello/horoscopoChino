@@ -113,25 +113,23 @@ public function agregarPersona() {
     try {
         if ($_POST && Validacion::verificacionFormulario($_POST)) {
             // Obtén y limpia los datos del formulario
-            
-            $id = htmlspecialchars($_POST['id']);
             $nombre = htmlspecialchars($_POST['nombre']);
             $apellido = htmlspecialchars($_POST['apellido']);
-            $diaNacimiento = htmlspecialchars($_POST['diaNacimiento']);
-            $mesNacimiento = htmlspecialchars($_POST['mesNacimiento']);
-            $anioNacimiento = htmlspecialchars($_POST['anioNacimiento']);
-            $horaNacimiento = htmlspecialchars($_POST['horaNacimiento']);
+            $diaDeNacimiento = htmlspecialchars($_POST['diaDeNacimiento']);
+            $mesDeNacimiento = htmlspecialchars($_POST['mesDeNacimiento']);
+            $anioDeNacimiento = htmlspecialchars($_POST['anioDeNacimiento']);
+            $horaDeNacimiento = htmlspecialchars($_POST['horaDeNacimiento']);
             $imgPersona = htmlspecialchars($_POST['imgPersona']);
             $id_signo = htmlspecialchars($_POST['id_signo']);
-            // Inserta el juguete en la base de datos
+            
 
-            $id = $this->modelo->insertarPersona($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$$anioNacimiento,
-            $horaNacimiento, $imgPersona, $id_signo);
+            $id = $this->modelo->insertarPersona($nombre, $apellido, $diaDeNacimiento, $mesDeNacimiento, $anioDeNacimiento, 
+            $horaDeNacimiento, $imgPersona, $id_signo);
 
             if ($id) {
                 header('Location: ' . BASE_URL . "lista");
             } else {
-                $this->alertaVista->mostrarError("Error al insertar el juguete.");
+                $this->alertaVista->mostrarError("Error al insertar la persona.");
             }
         } else {
             $this->alertaVista->mostrarError("Error: el formulario no pudo ser procesado. Asegúrate de que hayas completado todos los campos.");
@@ -139,5 +137,5 @@ public function agregarPersona() {
     } catch (PDOException $error) {
         $this->alertaVista->mostrarError("Error en la consulta a la base de datos: " . $error->getMessage());
     }
-    }
+  }
 }

@@ -91,7 +91,7 @@ switch ($params[0]) {
         else $mostrarControlador->mostrarError("404-Not-Found");
         break;
         case 'agregarSignoFormulario':
-            $signoControlador->formularioSigno();
+            $signoControlador->mostrarFormularioSigno();
             break;
     case 'modificarSigno':
         $signoControlador->mostrarSignoModificado();

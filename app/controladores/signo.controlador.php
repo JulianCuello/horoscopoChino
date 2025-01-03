@@ -67,7 +67,7 @@ class signoControlador{
     }
 
     //mostrar formulario modificacion
-    public function formularioSigno($id = null) {
+    public function mostrarformularioSigno($id = null) {
         Autorizacion::verificacion(); //verifico permisos y parametros válidos
     
         // Si el $id es proporcionado, busco la marca para editarla, si no, creo un nuevo formulario
@@ -81,7 +81,6 @@ class signoControlador{
             // Si no se pasa ID, se muestra el formulario para agregar una nueva marca
             $signo = null;
         }
-    
         $this->vista->mostrarFormularioSigno($signo);
     }
 
@@ -109,9 +108,7 @@ class signoControlador{
             $this->alertaVista->mostrarError("Error en la consulta a la base de datos/$error");
         }
     }
-
-
-   function agregarMarca(){
+   function agregarSigno(){
         Autorizacion::verificacion();
         try {//verifico permisos, parametros validos y posible acceso sin datos al form de alta.
             if ($_POST && Validacion::verificacionFormulario($_POST)) {
