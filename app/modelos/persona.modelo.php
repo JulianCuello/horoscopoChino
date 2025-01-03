@@ -23,7 +23,7 @@
             }
     
             function insertarPersona($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo) {
-                $query = $this->db->prepare('INSERT INTO juguete ($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo); VALUES (?, ?, ?, ?, ?, ?,?, ?, ?)');
+                $query = $this->db->prepare('INSERT INTO persona ($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo); VALUES (?, ?, ?, ?, ?, ?,?, ?, ?)');
                 $query->execute([$id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$anioNacimiento,$horaNacimiento, $imgPersona, $id_signo]); // Corrección aquí
                 return $this->db->lastInsertId();
             }

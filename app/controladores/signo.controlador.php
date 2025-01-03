@@ -22,11 +22,11 @@ class signoControlador{
 
     //lista marcas completa
     public function mostrarSignos(){
-        $signos = $this->modelo->obtenerSignos();
-        if (!$signos) {
+        $signo = $this->modelo->obtenerSignos();
+        if ($signo == null) {
             $this->alertaVista->mostrarVacio("no hay elementos para mostrar");
         } else {
-            $this->vista->demostrarSignos($signos, Autorizacion::esAdministrador());
+            $this->vista->demostrarSignos($signo, Autorizacion::esAdministrador());
         }
     }
     //lista filtrada

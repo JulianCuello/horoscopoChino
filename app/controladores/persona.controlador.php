@@ -104,8 +104,8 @@
 
 public function mostrarFormularioAlta(){
     Autorizacion::verificacion();
-    $marca = $this->modeloMarca->obtenerMarcas(); //consulta las marcas disponibles
-    $this->vista->mostrarFormulario($marca);
+    $signo = $this->modeloSigno->obtenerSignos(); //consulta las marcas disponibles
+    $this->vista->mostrarFormulario($signo);
 }
 
 public function agregarPersona() {

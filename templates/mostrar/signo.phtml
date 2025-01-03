@@ -3,22 +3,22 @@ require './templates/tareas/header.phtml';
 ?>
 <div class="container mt-4">
     <div class="row">
-        <?php foreach($signos as $signo) { ?>      
+        <?php foreach($signo as $sig) { ?>      
             <div class="col-md-4 mb-4"> 
                 <div class="card">
-                <img src="<?= htmlspecialchars($signo->imgHoroscopos); ?>" class="card-img-top" alt="<?= htmlspecialchars($signo->id_signo); ?>">
+                <img src="<?= htmlspecialchars($sig->imgHoroscopos); ?>" class="card-img-top" alt="<?= htmlspecialchars($sig->id_signo); ?>">
 
                     <div class="card-body">
-                        <h5 class="card-title"><?= htmlspecialchars($signo->id_signo); ?></h5>
+                        <h5 class="card-title"><?= htmlspecialchars($sig->id_signo); ?></h5>
                         <p class="card-text">
-                            <strong>elemento:</strong> <?= htmlspecialchars($signo->elemento); ?><br>
-                            <strong>caracteristicas:</strong> <?= htmlspecialchars($signo->caracteristicaGenerales); ?><br>
-                            <strong>Nombre:</strong> <?= htmlspecialchars($signo->predicciones); ?>
+                            <strong>elemento:</strong> <?= htmlspecialchars($sig->elemento); ?><br>
+                            <strong>caracteristicas:</strong> <?= htmlspecialchars($sig->caracteristicasGenerales); ?><br>
+                            <strong>predicciones:</strong> <?= htmlspecialchars($sig->predicciones); ?>
                         </p>
-                        <a href="signoId/<?= $signo->id_signo; ?>" class="btn btn-primary">Ver Productos</a>
+                        <a href="signoId/<?= $sig->id_signo; ?>" class="btn btn-primary">Ver Productos</a>
                         <?php if (Autorizacion::esAdministrador()) { ?>
-                            <a href="eliminarSigno/<?= $signo->id_signo; ?>" class="btn btn-danger">Eliminar</a>
-                            <a href="formularioSignoModificacion/<?= $signo->id_signo; ?>" class="btn btn-success">Modificar</a>
+                            <a href="eliminarSigno/<?= $sig->id_signo; ?>" class="btn btn-danger">Eliminar</a>
+                            <a href="formularioSignoModificacion/<?= $sig->id_signo; ?>" class="btn btn-success">Modificar</a>
                         <?php } ?>
                     </div>
                 </div>
