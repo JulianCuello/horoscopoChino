@@ -81,7 +81,6 @@
     Autorizacion::verificacion();
         if ($_POST && Validacion::verificarFormulario($_POST)) {
 
-            $id = htmlspecialchars($_POST['id']);
             $nombre = htmlspecialchars($_POST['nombre']);
             $apellido = htmlspecialchars($_POST['apellido']);
             $diaNacimiento = htmlspecialchars($_POST['diaNacimiento']);
@@ -91,7 +90,7 @@
             $imgPersona = htmlspecialchars($_POST['imgPersona']);
             $id_signo = htmlspecialchars($_POST['id_signo']);
             
-            $registroModificado = $this->modelo->actualizarPersona($id, $nombre,$apellido,$diaNacimiento,$mesNacimiento,$$anioNacimiento,
+            $registroModificado = $this->modelo->actualizarPersona($nombre,$apellido,$diaNacimiento,$mesNacimiento,$$anioNacimiento,
             $horaNacimiento, $imgPersona, $id_signo);
 
             if ($registroModificado < 1) {
@@ -113,6 +112,7 @@ public function agregarPersona() {
     try {
         if ($_POST && Validacion::verificacionFormulario($_POST)) {
             // Obtén y limpia los datos del formulario
+
             $nombre = htmlspecialchars($_POST['nombre']);
             $apellido = htmlspecialchars($_POST['apellido']);
             $diaDeNacimiento = htmlspecialchars($_POST['diaDeNacimiento']);
@@ -122,10 +122,10 @@ public function agregarPersona() {
             $imgPersona = htmlspecialchars($_POST['imgPersona']);
             $id_signo = htmlspecialchars($_POST['id_signo']);
             
-
+           
             $id = $this->modelo->insertarPersona($nombre, $apellido, $diaDeNacimiento, $mesDeNacimiento, $anioDeNacimiento, 
             $horaDeNacimiento, $imgPersona, $id_signo);
-
+            
             if ($id) {
                 header('Location: ' . BASE_URL . "lista");
             } else {

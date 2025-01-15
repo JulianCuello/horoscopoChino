@@ -9,27 +9,31 @@
             return $query->fetchAll(PDO::FETCH_OBJ);            
         }
 
-        public function seleccionarPersona($id) {
+        function seleccionarPersona($id) {
             $query = $this->db->prepare('SELECT * FROM `persona` JOIN signo ON persona.id_signo = signo.id_signo WHERE id_signo = ?');
             $query->execute([$id]);
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
-        public function obtenerPersonaPorId($id) {
+        function obtenerPersonaPorId($id) {
             $query = $this->db->prepare('SELECT * FROM persona JOIN signo ON persona.id_signo = signo.id_signo WHERE persona.id = ?');
             $query->execute([$id]);
             return $query->fetchAll(PDO::FETCH_OBJ);  // Devuelve solo un objeto
         }
 
         // Método corregido para insertar una persona
-        function insertarPersona($id, $nombre, $apellido, $diaNacimiento, $mesNacimiento, $anioNacimiento, $horaNacimiento, $imgPersona, $id_signo) {
-            $query = $this->db->prepare('INSERT INTO persona (id, nombre, apellido, diaNacimiento, mesNacimiento, anioNacimiento, horaNacimiento, imgPersona, id_signo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-            $query->execute([$id, $nombre, $apellido, $diaNacimiento, $mesNacimiento, $anioNacimiento, $horaNacimiento, $imgPersona, $id_signo]); 
+        function insertarPersona($nombre, $apellido, $diaNacimiento, $mesNacimiento, $anioNacimiento, $horaNacimiento, $imgPersona, $id_signo) {
+            // Eliminamos el parámetro 'id' de la consulta
+            $query = $this->db->prepare('INSERT INTO persona (nombre, apellido, diaNacimiento, mesNacimiento, anioNacimiento, horaNacimiento, imgPersona, id_signo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+            $query->execute([$nombre, $apellido, $diaNacimiento, $mesNacimiento, $anioNacimiento, $horaNacimiento, $imgPersona, $id_signo]);
+            
+            // Devolvemos el ID de la última inserción (sin necesidad de pasar el 'id')
             return $this->db->lastInsertId();
         }
-
+        
+        
         // Método corregido para obtener signo por ID
-        public function obtenerSignoId($id) {
+        function obtenerSignoId($id) {
             $query = $this->db->prepare('SELECT * FROM `signo` WHERE id_signo = ?');
             $query->execute([$id]);
             return $query->fetch(PDO::FETCH_OBJ); 
