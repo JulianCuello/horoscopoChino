@@ -4,25 +4,29 @@ require './templates/tareas/header.phtml';  ?>
 
     <div class="container mt-3">
           
-        <h2>Carga de marca</h2>
+        <h2>Carga de signo</h2>
 
-        <form action="agregarsignoFormulario" method="POST">
+        <form action="agregarSignoFormulario" method="POST">
             <div class="mb-1">
-                <label for="origen" class="form-label">origen</label>
-                <input type="text" class="form-control" id="origen" name="origen" required>
+                <label for="elemento" class="form-label">elemento</label>
+                <input type="text" class="form-control" id="elemento" name="elemento" required>
             </div>
             <div class="mb-1">
-                <label for="caracteristica" class="form-label">caracteristica</label>
-                <input type="text" class="form-control" id="origen" name="caracteristica" required>
+                <label for="caracteristicasGenerales" class="form-label">caracteristicasGenerales</label>
+                <input type="text" class="form-control" id="caracteristicasGenerales" name="caracteristicasGenerales" required>
             </div>
             <div class="mb-1">
-                <label for="nombreMarca" class="form-label">nombre marca</label>
-                <input type="text" class="form-control" id="origen" name="nombreMarca" required>
+                <label for="predicciones" class="form-label">predicciones</label>
+                <input type="text" class="form-control" id="predicciones" name="predicciones" required>
             </div>
             <div class="mb-1">
-            <label for="imgMarca" class="form-label">Imagen</label>
-            <input type="text" class="form-control" id="imgMarca" name="imgMarca">
-        </div>
+                <label for="imgHoroscopo" class="form-label">imgHoroscopo</label>
+                <input type="text" class="form-control" id="imgHoroscopo" name="imgHoroscopo">
+            </div>
+            <div class="mb-1">
+                <label for="animal" class="form-label">animal</label>
+                <input type="text" class="form-control" id="animal" name="animal" required>
+            </div>
             <button type="submit" class="btn btn-primary">Guardar marca</button>
         </form>
     </div>

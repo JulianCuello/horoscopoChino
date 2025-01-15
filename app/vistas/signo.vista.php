@@ -14,7 +14,7 @@ class signoVista{
         require './templates/formularios/modificar.signo.phtml';
     }
     
-    public function mostrarFormularioMarca($signo = null) {
+    public function mostrarFormularioSigno($signo = null) {
         require './templates/formularios/agregar.signo.phtml';
     }
  }
